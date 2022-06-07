@@ -1,13 +1,21 @@
-import Button from "./Button";
-import styles from "./App.module.css";
+import React from 'react';
+import {
+    BrowserRouter,
+    Routes,
+    Route
+} from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
-  return (
-    <div>
-      <h1 className={styles.title}>welcome!</h1>
-        <Button text={'버튼'}/>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/movie/:id" element={<Detail/>}/>
+                <Route path="/" element={<Home/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App;
